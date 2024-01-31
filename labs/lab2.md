@@ -37,7 +37,7 @@ Vue 3 dispose d'un outil en ligne de commande de "type-checking" du code: [vue-t
 4. Vérifier que l'IDE remonte une erreur comme quoi la prop n'existe pas
 5. Exécuter l'analyse statique en ligne de commande via la commande `vue-tsc --noEmit` et vérifier que l'erreur soit remontée également
 6. Supprimer la faute de frappe et ajouter cette étape de type-checking au script
- 
+
 ## Analyse statique du code
 
 Un des principaux outils utilisez pour faire de l'analyse de code statique en JavaScript est [ESLint](https://eslint.org/)
@@ -66,7 +66,7 @@ Afin de compiler le code pour produire le package/bundle qui sera utilisé en pr
 Il existe un certain nombre de frameworks de test JavaScript. Un des plus récents et des plus modernes est le framework [Vitest](https://vitest.dev/) qui est natif à Vite et qui propose une API compatible à celle de Jest (autre framework de tests populaire).
 
 1. Se familiariser à Vitest en parcourant rapidement [sa documentation](https://vitest.dev/).
-Le projet comporte un unique test unitaire contenu dans le fichier Tile.spec.ts. Ce test vérifie que lorsqu'une tuile de la grille du 2048 comporte un 2, le fond de cette tuile est orange 
+Le projet comporte un unique test unitaire contenu dans le fichier Tile.spec.ts. Ce test vérifie que lorsqu'une tuile de la grille du 2048 comporte un 2, le fond de cette tuile est orange
 2. Exécuter les tests sur le projet à l'aide de la commande `vitest` et assurez-vous que le test est bien vert.
 3. Modifier le 2 en entrée du test par un 4 et s'assurer que le test est passé à rouge.
 4. Remodifier le code pour le faire revenir comme avant et s'assurer que le test est passé au vert.
@@ -78,12 +78,12 @@ Le projet comporte un unique test unitaire contenu dans le fichier Tile.spec.ts.
 2. Si tout est bon, passer en revue la version finale du script et y ajouter des commentaires si besoin
 3. Faire un commit de la version finale du script et un push la branche `lab2`
 
-## Pour aller plus loin 
+## Pour aller plus loin
 
-Si vous avez terminé les étapes précédentes du TP, vous pouvez améliorer votre script avec les tâches suivantes : 
+Si vous avez terminé les étapes précédentes du TP, vous pouvez améliorer votre script avec les tâches suivantes :
 
 1. Ajouter une étape à votre script qui identifie les dépendances qui seraient à mettre à jour. Log la sortie de la commande au format JSON dans un fichier `reports/outdated-dependencies.json`.
-2. Mettre à jour toutes les dépendances. 
+2. Mettre à jour toutes les dépendances.
 3. Ajouter une étape à votre script qui identifie les dépendances comportant des vulnérabilités connues. Log la sortie de la commande au format JSON dans un fichier `reports/vulnerable-dependencies.json`.
 4. Constater qu'il n'y a pas de vulnérabilité connue pour le moment. Ajouter la version de [lodash](https://lodash.com/) 4.17.20 qui  comporte des vulnérabilités. Relancer l'analyse.
 5. Trouver dans la documentation de pnpm la commande permettant de forcer la mise à jour des dépendances présentant des vulnérabilités. L'exécuter.
