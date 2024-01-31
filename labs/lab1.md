@@ -41,7 +41,7 @@ Cela permettra à l'enseignant de mettre l'autre membre du projet en Owner du pr
 2. Ajouter un nouveau dépôt distant en amont pour récupérer les modifications qui seront apportées sur le répertoire d'origine grâce à la commande
 `git remote add upstream https://gitlab.com/bordeauxinp/ei8it213/vue-2048.git`
 
-> Pour récupérer les dernières modifications du répertoire d'origin il suffit de faire un `git pull upstream`
+> Pour récupérer les dernières modifications du répertoire d'origin il suffit de faire un `git pull upstream main`
 
 ## Lancer l'application en local
 
