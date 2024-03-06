@@ -59,12 +59,14 @@ Pour cela on commence par créer le test qui va vérifier que la fonctionnalité
 - on vérifie que la pipeline échoue bien pour ce test
 
 On implémente la fonctionnalité : 
-- on veut ajouter une nouvelle balise qui remplacera celle existante dans le cas où le score serait supérieur à 128
-- on pourra utiliser pour cela la directive `v-if` (voir la doc de Vue pour plus d'information)
+- 2 possibilités d'implémentation
+  - ajouter une nouvelle balise qui remplacera celle existante dans le cas où le score serait supérieur à 128 (en utilisant la directive [v-if](https://vuejs.org/api/built-in-directives.html#v-if) de Vue pour cela)
+  - créer une [computed property](https://vuejs.org/guide/essentials/computed.html) dans le code javascript qui représente la couleur du texte et a une valeur différente en fonction du score
 - la couleur à utiliser sera 'text-orange-500'
 
 On push la fonctionnalité sur le repertoire et on vérifie que le pipeline passe bien au vert.
 
 Indications :
 1. on utilisera la méthode `mount` de la lib [vue-test-utils](https://test-utils.vuejs.org/) pour tester notre composant GameControls.
-2. on pourra ajouter un attribut `data-test=score` dans le composant GameControls.vue afin de pouvoir sélectionner la balise HTML souhaitée.
+2. il sera nécessaire d'ajouter le package `@pinia/testing` et de passer l'option suivante dans le mount: `global: { plugins: [createTestingPinia({ createSpy: vi.fn })] },` 
+3. on pourra ajouter un attribut `data-test=score` dans le composant GameControls.vue afin de pouvoir sélectionner la balise HTML souhaitée.
