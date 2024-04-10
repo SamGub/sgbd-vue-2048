@@ -19,6 +19,8 @@ jobs:
 
       - name: Check pnpm
         uses: pnpm/action-setup@v3
+        with:
+           version: 8
 
       - name: Build application
         run: pnpm install
