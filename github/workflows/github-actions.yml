@@ -1,0 +1,49 @@
+name: Notre super workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Build application
+        run: pnpm install
+
+      - name: Run static analysis and unit tests
+        run: 
+          # Commandes pour exécuter les analyses statiques (linter, typage statique)
+          # Exemple: pylint src/ && pytest tests/
+
+  # deploy:
+  #   name: Deploy to QA and PROD
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'workflow_dispatch' # Déclencher uniquement si le workflow est déclenché manuellement
+
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
+
+  #     - name: Deploy to QA
+  #       run: |
+  #         # Commande de déploiement vers l'environnement QA
+  #         # Exemple: ssh user@qa-server 'deploy-script.sh'
+
+  #     - name: Deploy to PROD
+  #       run: |
+  #         # Commande de déploiement vers l'environnement de production
+  #         # Exemple: ssh user@prod-server 'deploy-script.sh'
