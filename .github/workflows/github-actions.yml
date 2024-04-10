@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -33,7 +34,11 @@ jobs:
           name: dist
           path: |
             dist
-
+      - name: Tests
+        run: | 
+          pnpm type-check
+          pnpm lint
+          pnpm test
 
 
       # - name: Run static analysis and unit tests
