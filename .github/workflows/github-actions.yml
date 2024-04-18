@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Install SWA
-        uses: pnpm install @azure/static-web-apps-cli
+        run: pnpm install @azure/static-web-apps-cli
 
       - name: Deploy to QA
         run: |
