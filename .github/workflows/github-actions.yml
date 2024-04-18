@@ -46,22 +46,24 @@ jobs:
       #     # Commandes pour exécuter les analyses statiques (linter, typage statique)
       #     # Exemple: pylint src/ && pytest tests/
 
-  # deploy:
-  #   name: Deploy to QA and PROD
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   if: github.event_name == 'workflow_dispatch' # Déclencher uniquement si le workflow est déclenché manuellement
+  deploy:
+    name: Deploy to QA and PROD
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
 
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Install SWA
+        uses: pnpm install @azure/static-web-apps-cli
 
-  #     - name: Deploy to QA
-  #       run: |
-  #         # Commande de déploiement vers l'environnement QA
-  #         # Exemple: ssh user@qa-server 'deploy-script.sh'
+      - name: Deploy to QA
+        run: |
+          pnpm swa deploy ./dist --app-name stapp-vue2048-qa -d $TOKEN_QA          
 
-  #     - name: Deploy to PROD
-  #       run: |
-  #         # Commande de déploiement vers l'environnement de production
-  #         # Exemple: ssh user@prod-server 'deploy-script.sh'
+      - name: Deploy to PROD
+        run: |
+          pnpm swa deploy ./dist --app-name stapp-vue2048-prod -d $TOKEN_PROD
+          
