@@ -55,7 +55,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Check pnpm
+        uses: pnpm/action-setup@v3
+        with:
+           version: 8
       
+      - name: Build application
+        run: | 
+          pnpm install
+          pnpm build
+
       - name: Install SWA
         run: pnpm install @azure/static-web-apps-cli
 
