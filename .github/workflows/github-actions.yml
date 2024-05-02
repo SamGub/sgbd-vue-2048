@@ -7,10 +7,12 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 8 * * 1'
   workflow_dispatch:
     inputs:
       run_tests:
-        description: 'Lance les analyse statique et les tests'
+        description: 'Lancer les analyses statiques et les tests'
         required: true
         default: false
         type: boolean
@@ -41,7 +43,7 @@ jobs:
           path: |
             dist
       - name: Tests
-        if: ${{ github.event.inputs.run_tests == 'true' }}
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.run_tests == 'true' }}
         run: | 
           pnpm type-check
           pnpm lint
